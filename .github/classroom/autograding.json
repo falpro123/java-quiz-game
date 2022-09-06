@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Capstone - CustomHttpClientTest",
+      "setup": "",
+      "run": "gradle test --tests CustomHttpClientTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
