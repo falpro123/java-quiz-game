@@ -38,8 +38,8 @@ public class Main {
         //loop until 10 questions
         for (int i = 0; i < 10; i++) {
             // generate random number between 1 and 100
-            int max = 100;
-            int min = 1;
+            int max = 10;
+            int min = 7;
             int range = max - min + 1;
             int rand = (int) (Math.random() * range) + min;
 
@@ -57,7 +57,8 @@ public class Main {
                 System.out.println("Please try entering your answer again: ");
                 scanner.nextLine();
             }
-            if (userAnswer.equalsIgnoreCase(kenzieDTO.getClues().get(rand).getAnswer())) {
+            //check if correct answer with removed punctuation for ease of use
+            if (userAnswer.equalsIgnoreCase(kenzieDTO.getClues().get(rand).getAnswer().replaceAll("\\p{Punct}", ""))) {
                 //if correct answer, add a point to the users score and print message and totalScore
                 totalScore++;
                 System.out.println("Congratulations! You've answered correctly and scored a point!");
