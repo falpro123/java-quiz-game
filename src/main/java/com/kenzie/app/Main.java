@@ -17,6 +17,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
+
     public static void playGame(String URL) throws JsonProcessingException {
         //scanner for reading user input
         Scanner scanner = new Scanner(System.in);
@@ -38,15 +39,15 @@ public class Main {
         //loop until 10 questions
         for (int i = 0; i < 10; i++) {
             // generate random number between 1 and 100
-            int max = 10;
-            int min = 7;
+            int max = 100;
+            int min = 1;
             int range = max - min + 1;
             int rand = (int) (Math.random() * range) + min;
 
-            //print out category title + question + ID
+            //print out category + ID + question
+            System.out.println("ID: " + kenzieDTO.getClues().get(rand).getId());
             System.out.println("Category: " + kenzieDTO.getClues().get(rand).getCategory().getTitle());
             System.out.println("Question: " + kenzieDTO.getClues().get(rand).getQuestion());
-            System.out.println("ID: " + kenzieDTO.getClues().get(rand).getId());
 
             //prompt for user input then read input
             System.out.println("Please enter correct answer for a point...");
@@ -75,8 +76,15 @@ public class Main {
             //stop game after numQuestions displayed = 10 + final score + "Game over"
             if (numQuestions == 10) {
                 System.out.println("Your final score is " + totalScore + " !");
-                System.out.println("Game over");
-                break;
+                System.out.println("Do you want to play again? Please enter Y or N");
+                String playAgain = scanner.nextLine();
+                if (playAgain.equalsIgnoreCase("Y")) {
+                    System.out.println("\n");
+                    playGame(URL);
+                } else {
+                    System.out.println("Thank you for playing!");
+                    break;
+                }
             }
         }
     }
