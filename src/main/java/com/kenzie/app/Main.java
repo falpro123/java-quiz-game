@@ -29,7 +29,6 @@ public class Main {
         int numQuestions = 0;
 
         //get request method from class
-        CustomHttpClient.sendGET(URL);
         String response = CustomHttpClient.sendGET(URL);
         ObjectMapper objectMapper = new ObjectMapper();
 
